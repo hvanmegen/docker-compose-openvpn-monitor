@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+    openvpn-monitor:
+        container_name: openvpn-monitor
+        environment:
+            - OPENVPNMONITOR_DEFAULT_DATETIMEFORMAT=%%d/%%m/%%Y
+            - OPENVPNMONITOR_DEFAULT_LATITUDE=-37
+            - OPENVPNMONITOR_DEFAULT_LOGO=logo.jpg
+            - OPENVPNMONITOR_DEFAULT_LONGITUDE=144
+            - OPENVPNMONITOR_DEFAULT_MAPS=True
+            - OPENVPNMONITOR_DEFAULT_MAPSHEIGHT=500
+            - OPENVPNMONITOR_DEFAULT_SITE=Test
+            - OPENVPNMONITOR_SITES_0_ALIAS=UDP
+            - OPENVPNMONITOR_SITES_0_HOST=openvpn-udp
+            - OPENVPNMONITOR_SITES_0_NAME=UDP
+            - OPENVPNMONITOR_SITES_0_PORT=5555
+            - OPENVPNMONITOR_SITES_0_SHOWDISCONNECT=True
+            - OPENVPNMONITOR_SITES_1_ALIAS=TCP
+            - OPENVPNMONITOR_SITES_1_HOST=openvpn-udp
+            - OPENVPNMONITOR_SITES_1_NAME=TCP
+            - OPENVPNMONITOR_SITES_1_PORT=5555
+        ports:
+            - '80:80'
+        image: ruimarinho/openvpn-monitor
